@@ -8,8 +8,33 @@
 </head>
 <body class="exercicio">
 
+    <div id="app">
+        <p>1) {{ 2 + 2 }}</p>
+        <p>2) {{ "teste".toUpperCase() }}</p>
+        <p>3) Produto: {{ nome }}, R$: {{ preco }}, {{desconto * 100}}% </p>
+        <p>4) Hora Certa: {{ horaCerta() }} </p>
+        <p>5) Preço Com Desconto: R$ {{ precoComdesconto }} </p>
+    </div>
+
     <script>
-        // ...
+        new Vue({//VUE instance
+            el: "#app",//chamada do elemento selecionado
+            data: {//criando um objeto
+                nome: 'caneta',
+                preco: 6.89,
+                desconto: 0.15
+            },
+            methods: {//chamada de metodos
+                horaCerta(){
+                    return new Date().toLocaleString()
+                }
+            },
+            computed: {//chamada de valores calculados, computados.
+                precoComdesconto(){
+                    return this.preco * (1 - this.desconto)
+                }
+            }
+        })
     </script>
 </body>
 </html>
