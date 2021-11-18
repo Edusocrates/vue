@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+
+    <style>
+        .verde {
+            background-color: rgba(38, 99, 2, 0.863);
+        }
+        .azul {
+            background-color: rgba(20, 23, 216, 0.863);
+        }
+    </style>
+</head>
+<body class="exercicio">
+    
+    <div id="app" @click="aplicarCor = !aplicarCor" 
+    :class="{verde: aplicarCor}" >
+
+    </div>
+    <script>
+        new Vue ({
+            el: "#app",
+            data: {
+                 titulo: "Bem vindos aos estudos de Vue.js",
+                 subtitulo: "created by: Eduardo Sócrates",
+                 aplicarCor: false
+            },
+            template: `
+
+                <div>
+                    <h1  @click="aplicarCor = !aplicarCor" 
+    :class="{verde: aplicarCor}">{{titulo}}</h1>
+                    <h3   @click="aplicarCor = !aplicarCor" 
+    :class="{azul: aplicarCor}">{{subtitulo}}</h3>
+                    </div>
+            `
+
+
+        })
+    </script>
+</body>
+</html>
